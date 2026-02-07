@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'Olivero Hugo Theme'
+title = 'Olivero Hugo Theme by Val Paliy'
 theme = 'olivero'
 
 [params]
