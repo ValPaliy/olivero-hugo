@@ -57,6 +57,15 @@
         <!-- Copyright info -->
         <div class="copyright">
           <p>&copy; {{ now.Year }} {{ .Site.Title }}. {{ if .Site.Params.copyright }}{{ .Site.Params.copyright }}{{ else }}All rights reserved.{{ end }}</p>
+          {{ if .Site.Params.author }}
+          <p class="author-credit">Created by 
+            {{ if .Site.Params.author_url }}
+            <a href="{{ .Site.Params.author_url }}" target="_blank" rel="noopener noreferrer">{{ .Site.Params.author }}</a>
+            {{ else }}
+            {{ .Site.Params.author }}
+            {{ end }}
+          </p>
+          {{ end }}
         </div>
         
         <!-- Powered by -->

@@ -5,7 +5,8 @@ theme = 'olivero'
 
 [params]
   description = "A 1:1 Hugo replication of Drupal's Olivero theme"
-  author = "Hugo Theme Developer"
+  author = "Val Paliy"
+  author_url = "https://valticus.pro"
   logo = "/images/logo.svg"
   show_share_buttons = true
   

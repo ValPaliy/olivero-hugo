@@ -1774,6 +1774,23 @@ hr {
   line-height: var(--line-height-normal);
 }
 
+.author-credit {
+  margin-top: var(--space-2) !important;
+}
+
+.author-credit a {
+  color: var(--color-blue-5);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.author-credit a:hover,
+.author-credit a:focus {
+  color: var(--color-blue-4);
+  text-decoration: underline;
+}
+
 .powered-by a {
   color: var(--color-blue-5);
   text-decoration: none;

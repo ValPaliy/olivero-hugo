@@ -2,6 +2,11 @@ baseURL = 'https://example.org/'
 languageCode = 'en-US'
 title = 'My New Hugo Site'
 
+[params]
+  author = "Val Paliy"
+  author_url = "https://valticus.pro"
+  description = "Olivero Hugo Theme - A 1:1 replication of Drupal's Olivero theme"
+
 [menus]
   [[menus.main]]
     name = 'Home'
