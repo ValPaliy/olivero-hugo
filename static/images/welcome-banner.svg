@@ -1,0 +1,72 @@
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="welcomeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0055f4;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#1a6aff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#4d94ff;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#e0eeff;stop-opacity:0.9"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Main background -->
+  <rect width="800" height="400" fill="url(#welcomeGradient)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="60" fill="#ffffff" opacity="0.1"/>
+  <circle cx="700" cy="300" r="80" fill="#ffffff" opacity="0.08"/>
+  <circle cx="650" cy="80" r="40" fill="#ffffff" opacity="0.12"/>
+  <circle cx="150" cy="320" r="50" fill="#ffffff" opacity="0.09"/>
+  
+  <!-- Grid pattern overlay -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2"/>
+  </pattern>
+  <rect width="800" height="400" fill="url(#grid)"/>
+  
+  <!-- Main text -->
+  <text x="400" y="150" font-family="Metropolis, Arial, sans-serif" font-size="48" font-weight="700" text-anchor="middle" fill="url(#textGradient)">
+    Welcome to
+  </text>
+  
+  <text x="400" y="210" font-family="Metropolis, Arial, sans-serif" font-size="56" font-weight="700" text-anchor="middle" fill="#ffffff">
+    Olivero Hugo
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="250" font-family="Lora, Georgia, serif" font-size="20" font-style="italic" text-anchor="middle" fill="#e0eeff" opacity="0.9">
+    Beautiful • Accessible • Fast
+  </text>
+  
+  <!-- Decorative line -->
+  <line x1="250" y1="270" x2="550" y2="270" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+  
+  <!-- Small icons representing features -->
+  <!-- Mobile icon -->
+  <g transform="translate(200, 300)">
+    <rect x="0" y="0" width="30" height="40" rx="4" fill="#ffffff" opacity="0.8"/>
+    <rect x="3" y="5" width="24" height="25" fill="#0055f4"/>
+    <circle cx="15" cy="35" r="2" fill="#ffffff"/>
+  </g>
+  
+  <!-- Accessibility icon -->
+  <g transform="translate(370, 300)">
+    <circle cx="15" cy="8" r="4" fill="#ffffff" opacity="0.8"/>
+    <path d="M15 15C10 15 5 20 5 25V30H25V25C25 20 20 15 15 15Z" fill="#ffffff" opacity="0.8"/>
+  </g>
+  
+  <!-- Speed icon -->
+  <g transform="translate(540, 300)">
+    <path d="M15 5L25 15L15 25L5 15Z" fill="#ffffff" opacity="0.8"/>
+    <path d="M15 10L20 15L15 20L10 15Z" fill="#0055f4"/>
+  </g>
+  
+  <!-- Bottom wave decoration -->
+  <path d="M0 350Q200 320 400 350T800 350V400H0V350Z" fill="#ffffff" opacity="0.1"/>
+  
+  <!-- Subtle vignette effect -->
+  <rect width="800" height="400" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.3"/>
+</svg>

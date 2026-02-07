@@ -1,0 +1,94 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Olivero Hugo Theme'
+theme = 'olivero'
+
+[params]
+  description = "A 1:1 Hugo replication of Drupal's Olivero theme"
+  author = "Hugo Theme Developer"
+  logo = "/images/logo.svg"
+  show_share_buttons = true
+  
+  # Social links
+  [params.social]
+    twitter = "https://twitter.com/yourusername"
+    facebook = "https://facebook.com/yourusername"
+    linkedin = "https://linkedin.com/in/yourusername"
+    github = "https://github.com/yourusername"
+  
+  # Homepage sections
+  [[params.sections]]
+    title = "Welcome to Olivero Hugo"
+    description = "Experience the beauty and accessibility of Drupal's Olivero theme, now available for Hugo"
+    content = """
+    This theme brings the modern, accessible design of Drupal's Olivero theme to Hugo. 
+    Features include mobile-first responsive design, accessible navigation, beautiful typography, 
+    and comprehensive styling for all content types.
+    """
+    
+    [[params.sections.features]]
+      title = "Mobile-First Design"
+      description = "Responsive layout that works perfectly on all devices"
+      icon = '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" fill="currentColor"/></svg>'
+    
+    [[params.sections.features]]
+      title = "Accessible Navigation"
+      description = "Keyboard-friendly navigation with ARIA support"
+      icon = '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"/></svg>'
+    
+    [[params.sections.features]]
+      title = "Beautiful Typography"
+      description = "Lora and Metropolis fonts for optimal readability"
+      icon = '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.93 13.5h4.14L12 7.98zM20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-4.05 16.5l-1.14-3H9.17l-1.12 3H5.96l5.11-13h1.86l5.11 13h-2.09z" fill="currentColor"/></svg>'
+
+# Menu configuration
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 10
+    
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 20
+    
+  [[menu.main]]
+    name = "Blog"
+    url = "/posts/"
+    weight = 30
+    
+  [[menu.main]]
+    name = "Features"
+    url = "#features"
+    weight = 40
+    
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 50
+    
+  [[menu.secondary]]
+    name = "Login"
+    url = "/login/"
+    weight = 10
+    
+  [[menu.secondary]]
+    name = "Register"
+    url = "/register/"
+    weight = 20
+    
+  [[menu.footer]]
+    name = "Privacy Policy"
+    url = "/privacy/"
+    weight = 10
+    
+  [[menu.footer]]
+    name = "Terms of Service"
+    url = "/terms/"
+    weight = 20
+    
+  [[menu.footer]]
+    name = "Sitemap"
+    url = "/sitemap.xml"
+    weight = 30

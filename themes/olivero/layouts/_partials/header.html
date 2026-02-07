@@ -1,0 +1,153 @@
+<!-- Olivero Header with Mobile-First Navigation -->
+<header class="site-header" role="banner">
+  <!-- Skip to main content link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Top bar with secondary menu and user actions -->
+  <div class="header-top">
+    <div class="container">
+      <div class="header-top-inner">
+        <!-- Secondary navigation -->
+        {{ if site.Menus.secondary }}
+        <nav class="secondary-nav" role="navigation" aria-label="Secondary">
+          <ul class="secondary-menu">
+            {{ range site.Menus.secondary }}
+            <li class="secondary-menu-item">
+              <a href="{{ .URL }}" class="secondary-menu-link">{{ .Name }}</a>
+            </li>
+            {{ end }}
+          </ul>
+        </nav>
+        {{ end }}
+        
+        <!-- User actions and language switcher -->
+        <div class="header-actions">
+          <!-- Language switcher placeholder -->
+          <div class="language-switcher">
+            <button class="language-toggle" aria-expanded="false" aria-label="Language">
+              EN
+            </button>
+          </div>
+          
+          <!-- Search toggle -->
+          <button class="search-toggle" aria-expanded="false" aria-label="Search">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM19 19l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main header with branding and primary navigation -->
+  <div class="header-main">
+    <div class="container">
+      <div class="header-main-inner">
+        <!-- Site branding -->
+        <div class="site-branding">
+          {{ if .Site.Params.logo }}
+          <a href="{{ .Site.BaseURL }}" class="site-logo" rel="home">
+            <img src="{{ .Site.Params.logo }}" alt="{{ .Site.Title }}" width="60" height="60">
+          </a>
+          {{ end }}
+          <div class="site-title-wrapper">
+            <a href="{{ .Site.BaseURL }}" class="site-title" rel="home">
+              {{ .Site.Title }}
+            </a>
+            {{ if .Site.Params.description }}
+            <p class="site-description">{{ .Site.Params.description }}</p>
+            {{ end }}
+          </div>
+        </div>
+        
+        <!-- Mobile navigation button -->
+        <button class="mobile-nav-button" 
+                aria-expanded="false" 
+                aria-controls="primary-nav"
+                aria-label="Toggle navigation">
+          <span class="mobile-nav-button-icon"></span>
+          <span class="mobile-nav-button-label">Menu</span>
+        </button>
+        
+        <!-- Primary navigation -->
+        {{ if site.Menus.main }}
+        <nav id="primary-nav" class="primary-nav" role="navigation" aria-label="Primary">
+          <ul class="primary-menu">
+            {{ range site.Menus.main }}
+            <li class="primary-menu-item{{ if .HasChildren }} has-children{{ end }}">
+              <a href="{{ .URL }}" class="primary-menu-link{{ if .HasChildren }} has-dropdown{{ end }}">
+                {{ .Name }}
+                {{ if .HasChildren }}
+                <span class="dropdown-toggle" aria-expanded="false">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 8.5L2.5 5h7L6 8.5z" fill="currentColor"/>
+                  </svg>
+                </span>
+                {{ end }}
+              </a>
+              {{ if .HasChildren }}
+              <ul class="dropdown-menu">
+                {{ range .Children }}
+                <li class="dropdown-menu-item">
+                  <a href="{{ .URL }}" class="dropdown-menu-link">{{ .Name }}</a>
+                </li>
+                {{ end }}
+              </ul>
+              {{ end }}
+            </li>
+            {{ end }}
+          </ul>
+        </nav>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile navigation panel -->
+  <div class="mobile-nav-panel" id="mobile-nav-panel">
+    <div class="mobile-nav-panel-inner">
+      <!-- Mobile primary navigation -->
+      {{ if site.Menus.main }}
+      <nav class="mobile-primary-nav" role="navigation" aria-label="Mobile primary">
+        <ul class="mobile-primary-menu">
+          {{ range site.Menus.main }}
+          <li class="mobile-primary-menu-item{{ if .HasChildren }} has-children{{ end }}">
+            <a href="{{ .URL }}" class="mobile-primary-menu-link">
+              {{ .Name }}
+            </a>
+            {{ if .HasChildren }}
+            <button class="mobile-submenu-toggle" aria-expanded="false">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 8.5L2.5 5h7L6 8.5z" fill="currentColor"/>
+              </svg>
+            </button>
+            <ul class="mobile-submenu">
+              {{ range .Children }}
+              <li class="mobile-submenu-item">
+                <a href="{{ .URL }}" class="mobile-submenu-link">{{ .Name }}</a>
+              </li>
+              {{ end }}
+            </ul>
+            {{ end }}
+          </li>
+          {{ end }}
+        </ul>
+      </nav>
+      {{ end }}
+      
+      <!-- Mobile secondary navigation -->
+      {{ if site.Menus.secondary }}
+      <nav class="mobile-secondary-nav" role="navigation" aria-label="Mobile secondary">
+        <ul class="mobile-secondary-menu">
+          {{ range site.Menus.secondary }}
+          <li class="mobile-secondary-menu-item">
+            <a href="{{ .URL }}" class="mobile-secondary-menu-link">{{ .Name }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </nav>
+      {{ end }}
+    </div>
+  </div>
+</header>

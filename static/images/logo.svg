@@ -1,0 +1,20 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="58" fill="#0055f4" stroke="#0036b1" stroke-width="4"/>
+  
+  <!-- Letter O stylized -->
+  <path d="M60 25C40.7 25 25 40.7 25 60C25 79.3 40.7 95 60 95C79.3 95 95 79.3 95 60C95 40.7 79.3 25 60 25ZM60 85C46.2 85 35 73.8 35 60C35 46.2 46.2 35 60 35C73.8 35 85 46.2 85 60C85 73.8 73.8 85 60 85Z" fill="white"/>
+  
+  <!-- Inner design element representing Hugo -->
+  <circle cx="60" cy="60" r="15" fill="#1a6aff" opacity="0.8"/>
+  <path d="M55 60L60 55L65 60L60 65Z" fill="white"/>
+  
+  <!-- Subtle gradient overlay -->
+  <defs>
+    <radialGradient id="logoGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#4d94ff;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#0036b1;stop-opacity:0.1"/>
+    </radialGradient>
+  </defs>
+  <circle cx="60" cy="60" r="58" fill="url(#logoGradient)"/>
+</svg>

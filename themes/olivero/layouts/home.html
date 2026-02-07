@@ -1,0 +1,130 @@
+{{ define "main" }}
+<div class="container">
+  <!-- Hero section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <img src="/images/welcome-banner.svg" alt="Welcome to Olivero Hugo Theme" class="hero-image">
+      {{ if .Content }}
+      <div class="hero-text">
+        {{ .Content }}
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  
+  <!-- Recent posts -->
+  {{ if site.RegularPages }}
+  <section class="recent-posts">
+    <header class="section-header">
+      <h2 class="section-title">Latest Articles</h2>
+      <p class="section-description">Read our most recent content</p>
+    </header>
+    
+    <div class="posts-grid">
+      {{ range first 6 (site.RegularPages.ByDate.Reverse) }}
+      <article class="post-card">
+        {{ if .Params.featured_image }}
+        <div class="post-card-image">
+          <a href="{{ .RelPermalink }}">
+            <img src="{{ .Params.featured_image }}" alt="{{ .Title }}" loading="lazy">
+          </a>
+        </div>
+        {{ end }}
+        
+        <div class="post-card-content">
+          <header class="post-card-header">
+            {{ if .Params.category }}
+            <div class="post-category">
+              <span class="category-label">{{ .Params.category }}</span>
+            </div>
+            {{ end }}
+            
+            <h3 class="post-card-title">
+              <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            </h3>
+          </header>
+          
+          <div class="post-card-excerpt">
+            {{ .Summary }}
+          </div>
+          
+          <footer class="post-card-footer">
+            <div class="post-meta">
+              <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">
+                {{ .Date.Format "January 2, 2006" }}
+              </time>
+              {{ if .Params.author }}
+              <span class="post-author">by {{ .Params.author }}</span>
+              {{ end }}
+            </div>
+            
+            <div class="post-read-more">
+              <a href="{{ .RelPermalink }}" class="read-more-link">
+                Read more
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </footer>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    
+    <!-- View all posts link -->
+    {{ if gt (len site.RegularPages) 6 }}
+    <div class="view-all-posts">
+      <a href="{{ `posts` | relURL }}" class="view-all-link">
+        View all posts
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 4.5L12.5 9.5L7.5 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+  
+  <!-- Additional content sections -->
+  {{ if .Site.Params.sections }}
+    {{ range $index, $section := .Site.Params.sections }}
+    <section class="content-section content-section-{{ $index }}">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">{{ $section.title }}</h2>
+          {{ if $section.description }}
+          <p class="section-description">{{ $section.description }}</p>
+          {{ end }}
+        </header>
+        
+        <div class="section-content">
+          {{ if $section.content }}
+          <div class="section-text">
+            {{ $section.content | markdownify }}
+          </div>
+          {{ end }}
+          
+          {{ if $section.features }}
+          <div class="features-grid">
+            {{ range $section.features }}
+            <div class="feature-card">
+              {{ if .icon }}
+              <div class="feature-icon">
+                {{ .icon | safeHTML }}
+              </div>
+              {{ end }}
+              
+              <h3 class="feature-title">{{ .title }}</h3>
+              <p class="feature-description">{{ .description }}</p>
+            </div>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}
