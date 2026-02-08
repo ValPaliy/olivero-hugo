@@ -40,11 +40,11 @@ A **complete 1:1 replication** of Drupal's award-winning Olivero theme, now avai
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### 📋 Prerequisites
 - Hugo 0.155.0 or higher
 - Git
 
-### Installation
+### 📦 Installation
 
 1. **Clone this repository**:
    ```bash
@@ -59,7 +59,7 @@ A **complete 1:1 replication** of Drupal's award-winning Olivero theme, now avai
 
 3. **Open your browser** and navigate to `http://localhost:1313`
 
-### Configuration
+### ⚙️ Configuration
 
 Customize your site in `hugo.toml`:
 
@@ -91,7 +91,7 @@ olivero-hugo/
 
 ## 🎨 Customization
 
-### Colors
+### 🎨 Colors
 Edit CSS variables in `themes/olivero/assets/css/main.css`:
 
 ```css
@@ -102,7 +102,7 @@ Edit CSS variables in `themes/olivero/assets/css/main.css`:
 }
 ```
 
-### Typography
+### ✏️ Typography
 ```css
 :root {
   --font-lora: "Lora", Georgia, serif;
@@ -111,7 +111,7 @@ Edit CSS variables in `themes/olivero/assets/css/main.css`:
 }
 ```
 
-### Layout
+### 📐 Layout
 ```css
 :root {
   --container-max-width: 1200px;
@@ -149,7 +149,7 @@ We welcome contributions! Please:
 4. **Test thoroughly** across browsers and devices
 5. **Submit a pull request**
 
-### Development Guidelines
+### 📝 Development Guidelines
 
 - Follow Hugo conventions for file organization
 - Use semantic HTML5 for better accessibility
@@ -172,12 +172,12 @@ We welcome contributions! Please:
 
 ## 📈 Roadmap
 
-### Version 1.1
+### 🌙 Version 1.1
 - [ ] Dark mode support
 - [ ] Additional color schemes
 - [ ] Enhanced search functionality
 
-### Version 1.2
+### 🌍 Version 1.2
 - [ ] Multi-language improvements
 - [ ] Advanced customization options
 - [ ] Performance optimizations
