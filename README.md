@@ -190,6 +190,6 @@ If you like this theme, please ⭐ it on GitHub and consider sharing it with oth
 
 ## 📜 License
 
-Copyright © 2024 [Val Paliy](https://valticus.pro). All rights reserved.
+Copyright © 2026 [Val Paliy](https://valticus.pro). All rights reserved.
 
 This theme is licensed under the **GPL 2.0 License**, the same as the original Olivero theme for Drupal.
