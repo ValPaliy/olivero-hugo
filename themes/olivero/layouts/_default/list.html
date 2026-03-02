@@ -1,0 +1,62 @@
+{{ define "main" }}
+<div class="container">
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1 class="page-title">{{ .Title }}</h1>
+    {{ if .Description }}
+    <p class="page-description">{{ .Description }}</p>
+    {{ end }}
+  </header>
+
+  <!-- Posts List Layout -->
+  <div class="posts-list">
+    {{ range .Paginator.Pages }}
+    <article class="post-list-item">
+      <div class="post-list-content">
+        <header class="post-list-header">
+          <h2 class="post-list-title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h2>
+          <div class="post-meta">
+            {{ if .Date }}
+            <span class="post-date">
+              <time datetime="{{ .Date.Format "2006-01-02" }}">
+                {{ .Date.Format "January 2, 2006" }}
+              </time>
+            </span>
+            {{ end }}
+            {{ if .Params.author }}
+            <span class="post-author">{{ .Params.author }}</span>
+            {{ end }}
+            {{ if site.Params.blog.show_reading_time }}
+            <span class="reading-time">{{ .ReadingTime }} {{ i18n "minutes_read" }}</span>
+            {{ end }}
+          </div>
+        </header>
+        <div class="post-list-excerpt">
+          {{ .Summary }}
+        </div>
+        <footer class="post-list-footer">
+          <a href="{{ .RelPermalink }}" class="read-more-link">
+            {{ i18n "read_more" }}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          {{ if .Params.tags }}
+          <div class="post-tags">
+            {{ range first 3 .Params.tags }}
+            <span class="tag">{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+        </footer>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+
+  <!-- Pagination -->
+  {{ template "_internal/pagination.html" . }}
+</div>
+{{ end }}

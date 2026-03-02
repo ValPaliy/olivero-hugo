@@ -1,0 +1,59 @@
+<!-- Sidebar Widgets -->
+<aside class="page-sidebar">
+  <!-- Search Widget -->
+  <div class="sidebar-widget">
+    <h3 class="sidebar-widget-title">{{ i18n "search" }}</h3>
+    <div class="sidebar-widget-content">
+      <div class="search-input-wrapper">
+        <input type="text" class="search-input" placeholder="{{ i18n "search_placeholder" }}">
+      </div>
+    </div>
+  </div>
+
+  <!-- Categories Widget -->
+  {{ $categories := site.Taxonomies.categories }}
+  {{ if $categories }}
+  <div class="sidebar-widget">
+    <h3 class="sidebar-widget-title">{{ i18n "categories" }}</h3>
+    <div class="sidebar-widget-content">
+      <ul>
+        {{ range $categories.ByCount }}
+        <li>
+          <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+          <span>({{ .Count }})</span>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+  {{ end }}
+
+  <!-- Recent Posts Widget -->
+  <div class="sidebar-widget">
+    <h3 class="sidebar-widget-title">{{ i18n "recent_posts" }}</h3>
+    <div class="sidebar-widget-content">
+      <ul>
+        {{ range first 5 (where site.RegularPages "Section" "posts") }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tags Widget -->
+  {{ $tags := site.Taxonomies.tags }}
+  {{ if $tags }}
+  <div class="sidebar-widget">
+    <h3 class="sidebar-widget-title">{{ i18n "tags" }}</h3>
+    <div class="sidebar-widget-content">
+      <div class="tags-list">
+        {{ range first 10 $tags.ByCount }}
+        <a href="{{ .Page.RelPermalink }}" class="tag-link">{{ .Page.Title }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  {{ end }}
+</aside>

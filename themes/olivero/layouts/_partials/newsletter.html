@@ -1,0 +1,14 @@
+<!-- Newsletter Component -->
+{{ if site.Params.features.newsletter }}
+<div class="newsletter-box">
+  <h3 class="newsletter-title">{{ i18n "newsletter" }}</h3>
+  <p class="newsletter-description">Subscribe to our newsletter to get the latest updates.</p>
+  <form class="newsletter-form" action="#" method="post">
+    <div class="newsletter-form-group">
+      <label for="newsletter-email" class="visually-hidden">{{ i18n "email_placeholder" }}</label>
+      <input type="email" id="newsletter-email" name="email" class="form-input" placeholder="{{ i18n "email_placeholder" }}" required>
+      <button type="submit" class="form-button form-button--primary">{{ i18n "subscribe" }}</button>
+    </div>
+  </form>
+</div>
+{{ end }}

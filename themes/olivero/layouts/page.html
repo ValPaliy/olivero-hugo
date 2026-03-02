@@ -1,6 +1,14 @@
 {{ define "main" }}
+{{ $sidebarEnabled := site.Params.layout.sidebar_enabled | default false }}
+{{ $sidebarPosition := site.Params.layout.sidebar_position | default "right" }}
+
+{{ if $sidebarEnabled }}
+<div class="page-with-sidebar{{ if eq $sidebarPosition "left" }} sidebar--left{{ end }}">
+  <main class="page-main">
+{{ end }}
+
 <div class="container">
-  <article class="page-content">
+  <article class="page-content{{ if $sidebarEnabled }} page-content--with-sidebar{{ end }}">
     <header class="page-header">
       <h1 class="page-title">{{ .Title }}</h1>
       
@@ -81,4 +89,10 @@
     </footer>
   </article>
 </div>
+
+{{ if $sidebarEnabled }}
+  </main>
+  {{ partial "sidebar.html" . }}
+</div>
+{{ end }}
 {{ end }}

@@ -105,6 +105,20 @@ defaultContentLanguageInSubdir = false
     show_date = true
     show_author = true
     posts_per_page = 6
+    layout = "grid" # Options: "grid", "list", "cards"
+    
+  # Layout options
+  [params.layout]
+    sidebar_enabled = false # Enable sidebar on pages
+    sidebar_position = "right" # Options: "left", "right"
+    sidebar_width = "25%" # Sidebar width
+    
+  # Additional features
+  [params.features]
+    newsletter = false # Show newsletter signup
+    related_posts = true # Show related posts
+    author_box = false # Show author bio box
+    table_of_contents = true # Show TOC on long pages
     
   # SEO customization
   [params.seo]

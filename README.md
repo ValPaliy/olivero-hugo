@@ -173,6 +173,26 @@ Access the color scheme selector in the header next to the dark mode toggle.
 - Font preloading
 - Gzip compression support
 
+### 📐 Layout Options
+```toml
+[params.layout]
+  sidebar_enabled = true
+  sidebar_position = "right" # Options: "left", "right"
+  sidebar_width = "25%"
+
+[params.features]
+  newsletter = true
+  related_posts = true
+  author_box = true
+  table_of_contents = true
+```
+
+### 🧩 Component Variants
+- **Sidebar Layout**: Search, categories, recent posts, tags widgets
+- **List Layout**: Alternative to grid for blog posts
+- **Author Box**: Bio component with social links
+- **Newsletter**: Email subscription component
+
 ## 🌐 Browser Support
 
 | Browser | Version | Features |
@@ -225,15 +245,15 @@ We welcome contributions! Please:
 
 ## 📈 Roadmap
 
-### 🌙 Version 1.2 (Current)
-- [x] Multi-language improvements (6 languages: EN, ES, FR, DE, UK, AR)
-- [x] Advanced customization options (header/footer styles, custom CSS/JS)
-- [x] Performance optimizations (minification, fingerprinting, lazy loading)
+### 🚧 Version 1.3 (Current)
+- [x] Additional layout options (sidebar, list)
+- [x] More component variants (author box, newsletter)
+- [x] Documentation improvements
 
-### 🚧 Version 1.3
-- [ ] Additional layout options
-- [ ] More component variants
-- [ ] Documentation improvements
+### 🎯 Version 1.4
+- [ ] Shortcodes for common content patterns
+- [ ] Archive page template
+- [ ] Contact form template
 
 ---
 
