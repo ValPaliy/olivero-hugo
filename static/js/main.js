@@ -706,6 +706,8 @@
     search.init();
     darkMode.init();
     accessibility.init();
+    readingProgress.init();
+    imageLightbox.init();
 
     // Expose utilities globally
     Olivero.utils = utils;
@@ -718,5 +720,149 @@
   } else {
     init();
   }
+
+  /* ============================================
+     Reading Progress Bar
+     ============================================ */
+  const readingProgress = {
+    progressBar: null,
+    
+    init: function() {
+      // Only on article pages
+      if (!document.querySelector('.post-content')) return;
+      
+      this.createProgressBar();
+      this.bindEvents();
+    },
+    
+    createProgressBar: function() {
+      const progress = document.createElement('div');
+      progress.className = 'reading-progress';
+      progress.id = 'reading-progress';
+      progress.innerHTML = '<div class="reading-progress-bar" id="reading-progress-bar"></div>';
+      document.body.insertBefore(progress, document.body.firstChild);
+      this.progressBar = document.getElementById('reading-progress-bar');
+    },
+    
+    bindEvents: function() {
+      window.addEventListener('scroll', this.updateProgress.bind(this));
+      window.addEventListener('resize', this.updateProgress.bind(this));
+    },
+    
+    updateProgress: function() {
+      if (!this.progressBar) return;
+      
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight - windowHeight;
+      const scrollTop = window.scrollY;
+      const progress = (scrollTop / documentHeight) * 100;
+      
+      this.progressBar.style.width = Math.min(progress, 100) + '%';
+    }
+  };
+
+  /* ============================================
+     Image Lightbox
+     ============================================ */
+  const imageLightbox = {
+    lightbox: null,
+    images: [],
+    currentIndex: 0,
+    
+    init: function() {
+      this.createLightbox();
+      this.bindEvents();
+    },
+    
+    createLightbox: function() {
+      const lightbox = document.createElement('div');
+      lightbox.className = 'lightbox';
+      lightbox.id = 'image-lightbox';
+      lightbox.innerHTML = `
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-nav lightbox-prev" aria-label="Previous image">&larr;</button>
+        <img src="" alt="">
+        <button class="lightbox-nav lightbox-next" aria-label="Next image">&rarr;</button>
+      `;
+      document.body.appendChild(lightbox);
+      this.lightbox = lightbox;
+    },
+    
+    bindEvents: function() {
+      // Find all post images
+      const postImages = document.querySelectorAll('.post-body img, .post-content img');
+      
+      postImages.forEach((img, index) => {
+        if (!img.closest('a')) { // Not already in a link
+          this.images.push(img);
+          img.style.cursor = 'zoom-in';
+          img.addEventListener('click', () => this.open(index));
+        }
+      });
+      
+      // Close button
+      this.lightbox.querySelector('.lightbox-close').addEventListener('click', () => this.close());
+      
+      // Navigation
+      this.lightbox.querySelector('.lightbox-prev').addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.prev();
+      });
+      
+      this.lightbox.querySelector('.lightbox-next').addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.next();
+      });
+      
+      // Click outside to close
+      this.lightbox.addEventListener('click', (e) => {
+        if (e.target === this.lightbox) this.close();
+      });
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!this.lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') this.close();
+        if (e.key === 'ArrowLeft') this.prev();
+        if (e.key === 'ArrowRight') this.next();
+      });
+    },
+    
+    open: function(index) {
+      this.currentIndex = index;
+      const img = this.images[index];
+      const lightboxImg = this.lightbox.querySelector('img');
+      
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      
+      this.lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // Update nav visibility
+      const prevBtn = this.lightbox.querySelector('.lightbox-prev');
+      const nextBtn = this.lightbox.querySelector('.lightbox-next');
+      prevBtn.style.display = this.images.length > 1 ? 'block' : 'none';
+      nextBtn.style.display = this.images.length > 1 ? 'block' : 'none';
+    },
+    
+    close: function() {
+      this.lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    },
+    
+    prev: function() {
+      if (this.images.length <= 1) return;
+      this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+      this.open(this.currentIndex);
+    },
+    
+    next: function() {
+      if (this.images.length <= 1) return;
+      this.currentIndex = (this.currentIndex + 1) % this.images.length;
+      this.open(this.currentIndex);
+    }
+  };
 
 })();

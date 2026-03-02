@@ -3,6 +3,13 @@ languageCode = 'en-us'
 title = 'Olivero Hugo Theme by Val Paliy'
 theme = 'olivero'
 
+# Syntax highlighting
+[markup]
+  [markup.highlight]
+    noClasses = false
+    lineNos = true
+    style = "monokai"
+
 # Performance settings
 [performance]
   assetDir = "assets"
@@ -106,6 +113,16 @@ defaultContentLanguageInSubdir = false
     show_author = true
     posts_per_page = 6
     layout = "grid" # Options: "grid", "list", "cards"
+    comments = true # Enable comments section
+    
+  # Comments configuration (Disqus or Giscus)
+  [params.comments]
+    disqus_shortname = "" # Add your Disqus shortname
+    giscus_repo = "" # Add your Giscus repo (e.g., "username/repo")
+    giscus_repo_id = "" # Add your Giscus repo ID
+    giscus_category = "" # Add your Giscus category
+    giscus_category_id = "" # Add your Giscus category ID
+    giscus_theme = "light" # Options: "light", "dark", "preferred_color_scheme"
     
   # Layout options
   [params.layout]

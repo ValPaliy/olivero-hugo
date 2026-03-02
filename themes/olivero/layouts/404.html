@@ -1,0 +1,57 @@
+{{ define "main" }}
+<div class="error-page">
+  <div class="container">
+    <div class="error-content">
+      <div class="error-code">404</div>
+      <h1 class="error-title">Page Not Found</h1>
+      <p class="error-message">Oops! The page you're looking for doesn't exist. It might have been moved or deleted.</p>
+      
+      <div class="error-search">
+        <p>Try searching for what you need:</p>
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 17A8 8 0 109 1a8 8 0 000 16zm10 2-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <form action="/search" method="get">
+            <input type="text" name="q" class="error-search-input" placeholder="Search..." aria-label="Search">
+          </form>
+        </div>
+      </div>
+      
+      <div class="error-suggestions">
+        <h2>Here's what you can do:</h2>
+        <ul>
+          <li><a href="/">Go back to the homepage</a></li>
+          <li><a href="/posts/">Browse our articles</a></li>
+          <li><a href="/about/">Learn about us</a></li>
+          <li><a href="/contact/">Get in touch</a></li>
+        </ul>
+      </div>
+      
+      {{ if site.RegularPages }}
+      <div class="error-recent">
+        <h2>Recent Posts</h2>
+        <div class="error-posts-grid">
+          {{ range first 3 (site.RegularPages.ByDate.Reverse) }}
+          <article class="error-post-card">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+          </article>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+      
+      <div class="error-illustration">
+        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="2" stroke-dasharray="10 5"/>
+          <circle cx="100" cy="100" r="60" stroke="currentColor" stroke-width="2" stroke-dasharray="8 4"/>
+          <circle cx="100" cy="100" r="40" stroke="currentColor" stroke-width="2" stroke-dasharray="6 3"/>
+          <circle cx="100" cy="100" r="20" fill="currentColor" opacity="0.2"/>
+          <path d="M100 40v20M100 140v20M40 100h20M140 100h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
