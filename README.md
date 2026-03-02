@@ -120,6 +120,30 @@ Edit CSS variables in `themes/olivero/assets/css/main.css`:
 }
 ```
 
+### 🌙 Dark Mode
+The theme includes built-in dark mode support with:
+- System preference detection
+- Manual toggle button in the header
+- Persistent user preference via localStorage
+- Full color inversion for all components
+
+### 🎨 Color Schemes
+Choose from 6 color schemes:
+- Blue (Default)
+- Forest Green
+- Violet
+- Warm Orange
+- Teal
+- Rose Pink
+
+Access the color scheme selector in the header next to the dark mode toggle.
+
+### 🔍 Enhanced Search
+- Client-side search with instant results
+- Press `Ctrl/Cmd + K` to open search
+- Click the search icon in the header
+- Search through post titles, summaries, and tags
+
 ## 🌐 Browser Support
 
 | Browser | Version | Features |
@@ -172,10 +196,10 @@ We welcome contributions! Please:
 
 ## 📈 Roadmap
 
-### 🌙 Version 1.1
-- [ ] Dark mode support
-- [ ] Additional color schemes
-- [ ] Enhanced search functionality
+### 🌙 Version 1.1 (Current)
+- [x] Dark mode support
+- [x] Additional color schemes (Forest Green, Violet, Warm Orange, Teal, Rose Pink)
+- [x] Enhanced search functionality
 
 ### 🌍 Version 1.2
 - [ ] Multi-language improvements

@@ -1,0 +1,25 @@
+<!-- Search Modal -->
+<div class="search-modal" id="search-modal" aria-hidden="true">
+  <div class="search-backdrop" id="search-backdrop"></div>
+  <div class="search-container" role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-header">
+      <h2 class="search-title">Search</h2>
+      <button class="search-close" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-body">
+      <div class="search-input-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM19 19l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <input type="text" class="search-input" id="search-input" placeholder="Search for articles..." autocomplete="off">
+      </div>
+      <div class="search-results" id="search-results">
+        <p class="search-empty">Start typing to search...</p>
+      </div>
+    </div>
+  </div>
+</div>

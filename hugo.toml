@@ -9,6 +9,7 @@ theme = 'olivero'
   author_url = "https://valticus.pro"
   logo = "/images/logo.svg"
   show_share_buttons = true
+  default_theme = "light" # Options: "light", "dark", "system"
   
   # Social links
   [params.social]
