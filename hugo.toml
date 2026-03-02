@@ -33,7 +33,7 @@ theme = 'olivero'
 
 # Languages configuration
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = false
+defaultContentLanguageInSubdir = true
 
 [languages]
   [languages.en]

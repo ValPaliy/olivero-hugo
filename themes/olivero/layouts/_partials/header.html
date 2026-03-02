@@ -32,9 +32,22 @@
             <ul class="language-menu" role="menu">
               {{ range site.Languages }}
               <li class="language-option" role="none">
-                <a href="{{ $.Site.Home.RelPermalink }}" hreflang="{{ .LanguageCode }}" role="menuitem"{{ if eq $.Site.Language.LanguageCode .LanguageCode }} class="active"{{ end }}>
-                  {{ .LanguageName }}
-                </a>
+                {{ $targetLang := .LanguageCode }}
+                {{ $targetPage := "" }}
+                {{ range $.Page.Translations }}
+                  {{ if eq .Language.Lang $targetLang }}
+                    {{ $targetPage = . }}
+                  {{ end }}
+                {{ end }}
+                {{ if $targetPage }}
+                  <a href="{{ $targetPage.RelPermalink }}" hreflang="{{ $targetLang }}" role="menuitem"{{ if eq $.Site.Language.LanguageCode $targetLang }} class="active"{{ end }}>
+                    {{ .LanguageName }}
+                  </a>
+                {{ else }}
+                  <a href="{{ $.Site.Home.RelPermalink }}" hreflang="{{ $targetLang }}" role="menuitem"{{ if eq $.Site.Language.LanguageCode $targetLang }} class="active"{{ end }}>
+                    {{ .LanguageName }}
+                  </a>
+                {{ end }}
               </li>
               {{ end }}
             </ul>
