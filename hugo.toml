@@ -139,10 +139,10 @@ defaultContentLanguageInSubdir = false
     title = "Welcome to Olivero Hugo"
     description = "Experience the beauty and accessibility of Drupal's Olivero theme, now available for Hugo"
     content = """
-    This theme brings the modern, accessible design of Drupal's Olivero theme to Hugo. 
-    Features include mobile-first responsive design, accessible navigation, beautiful typography, 
-    and comprehensive styling for all content types.
-    """
+This theme brings the modern, accessible design of Drupal's Olivero theme to Hugo.
+
+Features include mobile-first responsive design, accessible navigation, beautiful typography, and comprehensive styling for all content types.
+"""
     
     [[params.sections.features]]
       title = "Mobile-First Design"
