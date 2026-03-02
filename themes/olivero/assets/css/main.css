@@ -1100,6 +1100,64 @@ hr {
   padding: 0 var(--space-4);
 }
 
+/* Post/Page Content - Constrained width for readability */
+.post-content,
+.page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-4);
+}
+
+/* Post/Page Header */
+.post-header,
+.page-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.post-title,
+.page-title {
+  margin-bottom: var(--space-4);
+}
+
+.post-description,
+.page-description {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-light);
+  margin-bottom: var(--space-4);
+}
+
+/* Center meta elements */
+.post-meta {
+  justify-content: center;
+}
+
+/* Center tags */
+.post-tags .tags-list {
+  justify-content: center;
+}
+
+/* Center share buttons */
+.share-buttons .share-links {
+  justify-content: center;
+}
+
+/* Related posts - center the grid */
+.related-posts h3 {
+  text-align: center;
+}
+
+/* Responsive - slightly narrower on tablets */
+@media (max-width: 64rem) {
+  .post-content,
+  .page-content {
+    max-width: 700px;
+    padding: var(--space-6) var(--space-4);
+  }
+}
+
 /* Responsive Typography */
 @media (max-width: 48rem) {
   html {
