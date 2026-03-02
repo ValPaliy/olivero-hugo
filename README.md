@@ -144,6 +144,35 @@ Access the color scheme selector in the header next to the dark mode toggle.
 - Click the search icon in the header
 - Search through post titles, summaries, and tags
 
+### 🌍 Multi-Language Support
+- 6 languages: English, Spanish, French, German, Ukrainian, Arabic
+- Language switcher in header with dropdown menu
+- Automatic hreflang tags for SEO
+- RTL support for Arabic
+
+### ⚙️ Advanced Customization
+```toml
+[params.header]
+  style = "default" # Options: "default", "centered", "minimal"
+  sticky = true
+
+[params.footer]
+  style = "default" # Options: "default", "minimal", "compact"
+  columns = 3
+
+[params.custom_css]
+  - "css/custom.css"
+
+[params.custom_js]
+  - "js/custom.js"
+```
+
+### ⚡ Performance
+- Asset minification and fingerprinting
+- Lazy loading for images
+- Font preloading
+- Gzip compression support
+
 ## 🌐 Browser Support
 
 | Browser | Version | Features |
@@ -196,15 +225,15 @@ We welcome contributions! Please:
 
 ## 📈 Roadmap
 
-### 🌙 Version 1.1 (Current)
-- [x] Dark mode support
-- [x] Additional color schemes (Forest Green, Violet, Warm Orange, Teal, Rose Pink)
-- [x] Enhanced search functionality
+### 🌙 Version 1.2 (Current)
+- [x] Multi-language improvements (6 languages: EN, ES, FR, DE, UK, AR)
+- [x] Advanced customization options (header/footer styles, custom CSS/JS)
+- [x] Performance optimizations (minification, fingerprinting, lazy loading)
 
-### 🌍 Version 1.2
-- [ ] Multi-language improvements
-- [ ] Advanced customization options
-- [ ] Performance optimizations
+### 🚧 Version 1.3
+- [ ] Additional layout options
+- [ ] More component variants
+- [ ] Documentation improvements
 
 ---
 

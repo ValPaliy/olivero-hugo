@@ -3,6 +3,74 @@ languageCode = 'en-us'
 title = 'Olivero Hugo Theme by Val Paliy'
 theme = 'olivero'
 
+# Performance settings
+[performance]
+  assetDir = "assets"
+  assetRelDir = "assets"
+  gzip = true
+  betterErrors = true
+
+# Minification settings
+[minify]
+  minifyOutput = true
+  disableXML = false
+  ignoreFiles = ["*.min.js", "*.min.css"]
+
+# Caching settings
+[caching]
+  disableHTMLCaching = false
+
+# Pagination
+[pagination]
+  pagerSize = 6
+
+# Languages configuration
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    languageCode = "en-us"
+    languageDirection = "ltr"
+    weight = 1
+    title = "Olivero Hugo Theme by Val Paliy"
+    
+  [languages.es]
+    languageName = "Español"
+    languageCode = "es"
+    languageDirection = "ltr"
+    weight = 2
+    title = "Tema Olivero Hugo por Val Paliy"
+    
+  [languages.fr]
+    languageName = "Français"
+    languageCode = "fr"
+    languageDirection = "ltr"
+    weight = 3
+    title = "Thème Olivero Hugo par Val Paliy"
+    
+  [languages.de]
+    languageName = "Deutsch"
+    languageCode = "de"
+    languageDirection = "ltr"
+    weight = 4
+    title = "Olivero Hugo Theme von Val Paliy"
+    
+  [languages.uk]
+    languageName = "Українська"
+    languageCode = "uk"
+    languageDirection = "ltr"
+    weight = 5
+    title = "Тема Olivero Hugo від Val Paliy"
+    
+  [languages.ar]
+    languageName = "العربية"
+    languageCode = "ar"
+    languageDirection = "rtl"
+    weight = 6
+    title = "سtheme Olivero Hugo بواسطة Val Paliy"
+
 [params]
   description = "A 1:1 Hugo replication of Drupal's Olivero theme"
   author = "Val Paliy"
@@ -11,6 +79,40 @@ theme = 'olivero'
   show_share_buttons = true
   default_theme = "light" # Options: "light", "dark", "system"
   
+  # Custom assets (optional)
+  custom_css = [] # Add custom CSS files, e.g., ["css/custom.css"]
+  custom_js = []  # Add custom JS files, e.g., ["js/custom.js"]
+  
+  # Header customization
+  [params.header]
+    style = "default" # Options: "default", "centered", "minimal"
+    show_social_icons = true
+    sticky = true
+    
+  # Footer customization
+  [params.footer]
+    style = "default" # Options: "default", "minimal", "compact"
+    columns = 3 # Number of footer columns (1-4)
+    show_social_icons = true
+    show_copyright = true
+    show_powered_by = true
+    
+  # Blog/Posts customization
+  [params.blog]
+    show_excerpt = true
+    excerpt_length = 160
+    show_reading_time = true
+    show_date = true
+    show_author = true
+    posts_per_page = 6
+    
+  # SEO customization
+  [params.seo]
+    canonical = true
+    open_graph = true
+    twitter_cards = true
+    schema_type = "BlogPosting" # Options: "Article", "BlogPosting", "TechArticle"
+    
   # Social links
   [params.social]
     twitter = "https://twitter.com/yourusername"

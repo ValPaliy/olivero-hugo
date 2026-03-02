@@ -1,5 +1,6 @@
 <!-- Olivero Footer -->
-<footer class="site-footer" role="contentinfo">
+{{ $footerStyle := site.Params.footer.style | default "default" }}
+<footer class="site-footer{{ if eq $footerStyle "minimal" }} footer--minimal{{ else if eq $footerStyle "compact" }} footer--compact{{ end }}" role="contentinfo">
   <div class="footer-top">
     <div class="container">
       <div class="footer-top-inner">

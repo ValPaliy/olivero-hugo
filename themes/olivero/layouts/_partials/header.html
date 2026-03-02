@@ -1,5 +1,6 @@
 <!-- Olivero Header with Mobile-First Navigation -->
-<header class="site-header" role="banner">
+{{ $headerStyle := site.Params.header.style | default "default" }}
+<header class="site-header{{ if eq $headerStyle "centered" }} header--centered{{ else if eq $headerStyle "minimal" }} header--minimal{{ end }}" role="banner">
   <!-- Skip to main content link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
   
@@ -22,12 +23,23 @@
         
         <!-- User actions and language switcher -->
         <div class="header-actions">
-          <!-- Language switcher placeholder -->
+          <!-- Language switcher -->
+          {{ if site.Languages | len -}}
           <div class="language-switcher">
-            <button class="language-toggle" aria-expanded="false" aria-label="Language">
-              EN
+            <button class="language-toggle" aria-expanded="false" aria-haspopup="true" aria-label="{{ i18n "language" }}">
+              {{ site.Language.LanguageCode | upper }}
             </button>
+            <ul class="language-menu" role="menu">
+              {{ range site.Languages }}
+              <li class="language-option" role="none">
+                <a href="{{ $.Site.Home.RelPermalink }}" hreflang="{{ .LanguageCode }}" role="menuitem"{{ if eq $.Site.Language.LanguageCode .LanguageCode }} class="active"{{ end }}>
+                  {{ .LanguageName }}
+                </a>
+              </li>
+              {{ end }}
+            </ul>
           </div>
+          {{ end }}
           
           <!-- Search toggle -->
           <button class="search-toggle" aria-expanded="false" aria-label="Search">
@@ -105,7 +117,7 @@
         <div class="site-branding">
           {{ if .Site.Params.logo }}
           <a href="{{ .Site.BaseURL }}" class="site-logo" rel="home">
-            <img src="{{ .Site.Params.logo }}" alt="{{ .Site.Title }}" width="60" height="60">
+            <img src="{{ .Site.Params.logo }}" alt="{{ .Site.Title }}" width="60" height="60" loading="lazy">
           </a>
           {{ end }}
           <div class="site-title-wrapper">
